@@ -8,7 +8,7 @@
 
 Playbooks publishes open, reusable analytical methods for applying governed CharityGraph Data with a general-purpose AI system selected by the user. It is a separate product from Builder, Data and Viewer. Builder constructs knowledge; Data publishes it; Viewer supports inspection and contextual entry points; Playbooks provides methods.
 
-Shared CharityGraph product principles, commitments, evidence rules, privacy rules, contestability rules and brand/reuse policy govern this contract. A future Playbooks-specific contract may refine those rules but may not override them.
+Shared CharityGraph product principles, commitments, evidence rules, privacy rules, contestability rules and brand/reuse policy govern this contract. This contract, and future governed revisions or refinements to it, may specialise Playbooks-specific rules but may not override shared CharityGraph authority.
 
 ## 2. Playbook Definition
 
@@ -19,7 +19,7 @@ The minimal machine contract is represented by `schema/playbook.schema.json` and
 - `schema_version`, `id`, `version`, `title` and `description`;
 - `governance_status` and `lifecycle_status`;
 - contributors and attribution;
-- applicable subject grains;
+- applicable analysis scales, including subject/scope grains and multi-subject question scales;
 - typed parameters and their public/private visibility;
 - CharityGraph context/data requirements and optional external-evidence requirements;
 - model/tool capability requirements without requiring a provider;
