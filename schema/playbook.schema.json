@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:charitygraph:playbook-definition-v0.1",
+  "title": "CharityGraph Playbook Definition v0.1",
+  "description": "Minimal governed analytical-method definition; invocations and external-model outputs are separate artefacts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "description",
+    "governance_status",
+    "lifecycle_status",
+    "contributors",
+    "subject_grains",
+    "parameters",
+    "context_requirements",
+    "base_policy_version",
+    "instruction_template",
+    "output_expectations",
+    "limitations",
+    "feedback_routes",
+    "licence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "playbook-definition-v0.1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^playbook:[a-z0-9][a-z0-9._-]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "governance_status": {
+      "enum": ["official", "community"]
+    },
+    "lifecycle_status": {
+      "enum": ["draft", "proposed", "active", "deprecated", "superseded"]
+    },
+    "contributors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "role"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "role": {"type": "string", "minLength": 1},
+          "attribution": {"type": "string"},
+          "affiliation": {"type": "string"},
+          "conflict_disclosure": {"type": "string"}
+        }
+      }
+    },
+    "subject_grains": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": ["organisation", "reporting_group", "program", "service", "project", "campaign", "portfolio", "ecosystem"]
+      }
+    },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "type", "required", "visibility"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "label": {"type": "string", "minLength": 1},
+          "type": {"enum": ["text", "number", "boolean", "subject_ref", "program_ref", "service_ref", "geography", "external_reference"]},
+          "required": {"type": "boolean"},
+          "visibility": {"enum": ["public", "private", "user_choice"]},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "context_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["charitygraph_references", "retrieval_mode"],
+      "properties": {
+        "charitygraph_references": {"type": "array", "items": {"type": "string"}},
+        "data_release_or_snapshot": {"type": ["string", "null"]},
+        "retrieval_mode": {"enum": ["retrieval", "packaged_context", "either"]},
+        "external_evidence": {"type": "string"},
+        "model_capabilities": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "base_policy_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "instruction_template": {
+      "type": "string",
+      "minLength": 1
+    },
+    "output_expectations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "feedback_routes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"enum": ["data_error", "playbook_method_problem", "execution_model_retrieval_problem"]}
+    },
+    "licence": {
+      "const": "CC BY 4.0"
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "supersedes": {"type": "string"},
+        "deprecated_by": {"type": "string"},
+        "adapted_from": {"type": "string"}
+      }
+    }
+  }
+}
