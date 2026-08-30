@@ -20,7 +20,7 @@ The embedded definition demonstrates the contract without creating a production 
       "attribution": "CharityGraph contributors"
     }
   ],
-  "subject_grains": ["organisation", "program", "service"],
+  "analysis_scales": ["organisation", "program", "service", "portfolio"],
   "parameters": [
     {
       "id": "subject_ref",

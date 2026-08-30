@@ -14,7 +14,7 @@
     "governance_status",
     "lifecycle_status",
     "contributors",
-    "subject_grains",
+    "analysis_scales",
     "parameters",
     "context_requirements",
     "base_policy_version",
@@ -66,11 +66,11 @@
         }
       }
     },
-    "subject_grains": {
+    "analysis_scales": {
       "type": "array",
       "minItems": 1,
       "items": {
-        "enum": ["organisation", "reporting_group", "program", "service", "project", "campaign", "portfolio", "ecosystem"]
+        "enum": ["organisation", "reporting_group", "program", "service", "project", "campaign", "portfolio", "ecosystem", "corpus"]
       }
     },
     "parameters": {
