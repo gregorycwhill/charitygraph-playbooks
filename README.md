@@ -1,5 +1,7 @@
 # CharityGraph Playbooks
 
+Review and reproducibility checks are documented in [DEVELOPMENT.md](DEVELOPMENT.md).
+
 **Status:** Product contract and example repository; no released Playbooks yet
 
 CharityGraph Playbooks is the fourth CharityGraph product:
